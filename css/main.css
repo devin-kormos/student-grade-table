@@ -1,0 +1,17 @@
+body {
+    padding-top: 56px;
+}
+
+#grudes .btn-danger,
+#grudes .btn-primary {
+    color: #fff;
+}
+
+#grudes .btn-danger:active,
+#grudes .btn-primary:active {
+    color: #000;
+}
+
+.input-group-text {
+    width: 2.5rem;
+}

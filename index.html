@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>memecx Student Grade Table</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css" integrity="sha512-6g9IGCc67eh+xK03Z8ILcnKLbJnKBW+qpEdoUVD/4hBa2Ghiq5dQgeNOGWJfGoe9tdCRM4GpJMnsRXa2FDJp9Q==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <span class="navbar-brand" href="#">memeCX Student Grade Table</span>
+        </div>
+    </nav>
+    <header class="jumbotron jumbotron-fluid">
+        <div class="container-fluid text-center"> 
+           <h1 class="display-3">Student Grades</h1>
+        </div>
+    </header>
+    <section class="container text-center" id="gradesSect">
+        <p class="lead pb-3">Edit Grades</p>
+        <table class="table table-striped" id="gradeTbl">
+            <thead class="thead-dark">
+                <tr>
+                    <td>#</td>
+                    <td>Student Name</td>
+                    <td>Course</td>
+                    <td>Grade</td>
+                    <td></td>
+                </tr>
+                <tbody class="table-hover tbody" id="grudes">
+
+                </tbody>
+            </thead>
+        </table>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">&#128100;</div>
+                  </div>
+                <input class="form-control" type="text" id="name" name="fname" placeholder="John Doe">
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">&#8258;</div>
+                  </div>
+                  <input class="form-control" type="text" id="course" name="course" placeholder="Math">
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">&#120587;</div>
+                  </div>
+                  <input class="form-control" type="text" id="grade" name="grade" placeholder="99">
+            </div>
+            <a href="#" class="btn btn-primary mt-3" id="addGrade" role="button">Add Grade</a>
+<!---->
+    </section>
+    <footer class="py-3 bg-light mt-3">
+        <div class="container">
+           <p class="text-center">Copyright &copy; memeCX 2020</p>
+        </div>
+    </footer>
+    <div id="id01" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Grade</h5>
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                </div>
+                <div class="modal-body" id="update">
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">&#128100;</div>
+                          </div>
+                        <input class="form-control" type="text" id="name" name="fname" placeholder="John Doe">
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">&#8258;</div>
+                          </div>
+                          <input class="form-control" type="text" id="course" name="course" placeholder="Math">
+                    </div>
+                    <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">&#120587;</div>
+                          </div>
+                          <input class="form-control" type="text" id="grade" name="grade" placeholder="99">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="document.getElementById('id01').style.display='none'">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+            </div>
+        </div>
+      </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="components/app.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
