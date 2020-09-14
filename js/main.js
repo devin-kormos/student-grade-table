@@ -7,20 +7,20 @@ var $grade = $("#grade")
 function addGrade(grade) {
     $grudes.append(`
 <tr grade-id="${grade.id}">
-    <td>${grade.id}</td><td><span class="noedit name">${grade.name}</span><input class="form-control edit name" placeholder="${grade.name}"></td>
-    <td><span class="noedit course">${grade.course}</span><input class="form-control edit course" placeholder="${grade.course}"></td>
-    <td><span class="noedit grade">${grade.grade}</span><input class="form-control edit grade" placeholder="${grade.grade}"></td>
+    <td>${grade.id}</td><td><span class="noedit name">${grade.name}</span><input class="form-control edit name"></td>
+    <td><span class="noedit course">${grade.course}</span><input class="form-control edit course"></td>
+    <td><span class="noedit grade">${grade.grade}</span><input class="form-control edit grade"></td>
     <td>
     <a class="btn btn-danger btn-sm noedit" grade-id="${grade.id}" id="deleteBtn" role="button">
         <span aria-hidden="true">&#120;</span>
     </a>
-    <a class="btn btn-danger btn-sm edit cancelEdit" grade-id="${grade.id}" id="cancelEdit" role="button">
+    <a class="btn btn-danger btn-sm edit" grade-id="${grade.id}" id="cancelEdit" role="button">
         <span aria-hidden="true">C</span>
     </a>
-    <a class="btn btn-primary btn-sm noedit editOrder" grade-id="${grade.id}" id="editBtn" role="button">
+    <a class="btn btn-primary btn-sm noedit" grade-id="${grade.id}" id="editOrder" role="button">
         <span aria-hidden="true">&#8635;</span>
     </a>
-    <a class="btn btn-primary btn-sm edit saveEdit" grade-id="${grade.id}" id="saveBtn" role="button">
+    <a class="btn btn-primary btn-sm edit" grade-id="${grade.id}" id="saveEdit" role="button">
         <span aria-hidden="true">&#128427;</span>
     </a>
     </td>
@@ -80,7 +80,7 @@ $grudes.delegate("#deleteBtn", "click", function() {
 })
 
 //Update Grade
-$grudes.delegate(".editOrder", "click", function() {
+$grudes.delegate("#editOrder", "click", function() {
     var $tr = $(this).closest("tr")
     $tr.find("input.name").val( $tr.find("span.name").html() )
     $tr.find("input.course").val( $tr.find("span.course").html() )
@@ -88,11 +88,11 @@ $grudes.delegate(".editOrder", "click", function() {
     $tr.addClass("edit")
 })
 
-$grudes.delegate(".cancelEdit", "click", function() {
+$grudes.delegate("#cancelEdit", "click", function() {
     $(this).closest("tr").removeClass("edit")
 })
 
-$grudes.delegate(".saveEdit", "click", function() {
+$grudes.delegate("#saveEdit", "click", function() {
     var $tr = $(this).closest("tr")
     var build = {
         name: $tr.find("input.name").val(),
@@ -106,9 +106,9 @@ $grudes.delegate(".saveEdit", "click", function() {
         data: build,
         headers: {"x-access-token": token},
         success: function() {
-            $tr.find("input.name").html(grade.name)
-            $tr.find("input.course").html(grade.course)
-            $tr.find("input.grade").html(grade.grade)
+            $tr.find("input.name").html(build.name)
+            $tr.find("input.course").html(build.course)
+            $tr.find("input.grade").html(build.grade)
             $tr.removeClass("edit")
         },
         error: function() {
